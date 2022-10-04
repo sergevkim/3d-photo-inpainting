@@ -2240,11 +2240,6 @@ def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, 
             axis = np.array([1., 0., 0.])
             angle = angles[tp_id % 4]
             #(tp_id // 4 * 4) / len(video_pose)
-            if tp_id % 10 == 0:
-                print()
-                print(f'{tp_id} Pose:  {rel_pose}')
-                print(f'{tp_id} Angle: {angle}')
-                print(f'{tp_id} Axis:  {axis}')
             normal_canvas.rotate(axis=axis, angle=(angle*180)/np.pi)
             normal_canvas.translate(rel_pose[:3,3])
             new_mean_loc_depth = mean_loc_depth - float(rel_pose[2, 3])
