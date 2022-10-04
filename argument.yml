@@ -9,7 +9,7 @@ x_shift_range: [0]
 y_shift_range: [0]
 z_shift_range: [0]
 traj_types: ['point']
-video_postfix: ['points']
+video_postfix: ['point3']
 specific: ''
 longer_side_len: 960
 src_folder: image

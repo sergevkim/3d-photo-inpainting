@@ -2233,10 +2233,13 @@ def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, 
     for video_pose, video_traj_type in zip(videos_poses, video_traj_types):
         stereos = []
         tops = []; buttoms = []; lefts = []; rights = []
+        angles = [0, 0.05, 0.1, 0.05]
         for tp_id, tp in enumerate(video_pose):
             rel_pose = np.linalg.inv(np.dot(tp, np.linalg.inv(ref_pose)))
             axis, angle = transforms3d.axangles.mat2axangle(rel_pose[0:3, 0:3])
-            angle = (tp_id // 10 * 10) / len(video_pose)
+            axis = np.array([0., 1., 0.])
+            angle = angles[tp_id // 4 % 4]
+            #(tp_id // 4 * 4) / len(video_pose)
             if tp_id % 10 == 0:
                 print()
                 print(f'{tp_id} Pose:  {rel_pose}')
