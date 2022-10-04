@@ -2236,10 +2236,11 @@ def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, 
         for tp_id, tp in enumerate(video_pose):
             rel_pose = np.linalg.inv(np.dot(tp, np.linalg.inv(ref_pose)))
             axis, angle = transforms3d.axangles.mat2axangle(rel_pose[0:3, 0:3])
+            angle = tp_id / len(video_pose)
             if tp_id % 10 == 0:
                 print()
-                print('Pose:  ', rel_pose)
-                print('Angle: ', angle)
+                print(f'{tp_id} Pose:  {rel_pose}')
+                print(f'{tp_id} Angle: {angle}')
             normal_canvas.rotate(axis=axis, angle=(angle*180)/np.pi)
             normal_canvas.translate(rel_pose[:3,3])
             new_mean_loc_depth = mean_loc_depth - float(rel_pose[2, 3])
