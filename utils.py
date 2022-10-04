@@ -51,7 +51,7 @@ def path_planning(num_frames, x, y, z, path_type=''):
     elif path_type == 'point':
         xs, ys, zs = [], [], []
         for frame_id, bs_shift_val in enumerate(np.arange(-2.0, 2.0, (4./num_frames))):
-            xs += [np.cos(0 * np.pi) * 1 * x]
+            xs += [np.cos(bs_shift_val * np.pi) * 1 * x]
             ys += [np.sin(0 * np.pi) * 1 * y]
             zs += [np.cos(0 * np.pi/2.) * 1 * z]
         xs, ys, zs = np.array(xs), np.array(ys), np.array(zs)
