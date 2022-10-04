@@ -53,16 +53,9 @@ def path_planning(num_frames, x, y, z, path_type=''):
             zs += [np.cos(bs_shift_val * np.pi/2.) * 1 * z]
         xs, ys, zs = np.array(xs), np.array(ys), np.array(zs)
     elif path_type == 'point':
-        corner_points = np.array([
-            [0, 0, 0],
-            [(0 + x) * 0.5, (0 + y) * 0.5, (0 + z) * 0.5],
-            [x, y, z],
-        ])
-        corner_t = np.linspace(0, 1, len(corner_points))
-        t = np.linspace(0, 1, num_frames)
-        cs = interp1d(corner_t, corner_points, axis=0, kind='quadratic')
-        spline = cs(t)
-        xs, ys, zs = [xx.squeeze() for xx in np.split(spline, 3, 1)]
+        xs = np.array([0., 0., 0., 0.])
+        ys = np.array([0., 0.2, 0.4, 0.6])
+        zs = np.array([0., 0., 0., 0.])
 
     return xs, ys, zs
 

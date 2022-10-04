@@ -3,13 +3,13 @@ depth_feat_model_ckpt: checkpoints/depth-model.pth
 rgb_feat_model_ckpt: checkpoints/color-model.pth
 MiDaS_model_ckpt: MiDaS/model.pt
 use_boostmonodepth: True
-fps: 40
+fps: 8
 num_frames: 4
 x_shift_range: [0]
-y_shift_range: [0.08]
+y_shift_range: [0.06]
 z_shift_range: [0]
 traj_types: ['point']
-video_postfix: ['point9']
+video_postfix: ['point10']
 specific: ''
 longer_side_len: 960
 src_folder: image
@@ -21,7 +21,7 @@ save_ply: True
 inference_video: True
 gpu_ids: 0
 offscreen_rendering: False
-img_format: '.jpg'
+img_format: '.png'
 depth_format: '.npy'
 require_midas: True
 depth_threshold: 0.04

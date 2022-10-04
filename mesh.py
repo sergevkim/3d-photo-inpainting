@@ -2238,7 +2238,7 @@ def output_3d_photo(verts, colors, faces, Height, Width, hFov, vFov, tgt_poses, 
             rel_pose = np.linalg.inv(np.dot(tp, np.linalg.inv(ref_pose)))
             axis, angle = transforms3d.axangles.mat2axangle(rel_pose[0:3, 0:3])
             axis = np.array([1., 0., 0.])
-            angle = angles[tp_id % 4]
+            angle = angles[tp_id]
             #(tp_id // 4 * 4) / len(video_pose)
             normal_canvas.rotate(axis=axis, angle=(angle*180)/np.pi)
             normal_canvas.translate(rel_pose[:3,3])
