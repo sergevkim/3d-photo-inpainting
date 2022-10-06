@@ -54,7 +54,7 @@ def path_planning(num_frames, x, y, z, path_type=''):
         xs, ys, zs = np.array(xs), np.array(ys), np.array(zs)
     elif path_type == 'point':
         xs = np.array([0., 0., 0., 0.])
-        ys = np.array([0., 0.2, 0.4, 0.6])
+        ys = np.array([0., 0.005, 0.01, 0.005])
         zs = np.array([0., 0., 0., 0.])
 
     return xs, ys, zs
